@@ -130,7 +130,7 @@ export function NaturalLanguageInput({ members, onParsed }: NaturalLanguageInput
 
   return (
     <div className="space-y-1.5">
-      <div className="glow-cyan rounded-2xl border border-accent/30 bg-surface p-1">
+      <div className="glow-accent rounded-2xl border border-accent/30 bg-surface p-1">
         <div className="flex items-center gap-2">
           <input
             type="text"

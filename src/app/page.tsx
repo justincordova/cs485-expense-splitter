@@ -23,17 +23,19 @@ function HomeContent() {
       <Header />
       <main className="mx-auto max-w-6xl px-6 py-8">
         <div className="mb-8 grid grid-cols-3 gap-4">
-          <div className="rounded-2xl border border-border bg-surface p-5">
+          <div className="gradient-bg rounded-2xl border border-border bg-surface p-5">
             <p className="text-xs text-text-muted uppercase tracking-wider">Trips</p>
             <p className="mt-1 text-3xl font-bold text-text-primary">{trips.length}</p>
           </div>
-          <div className="rounded-2xl border border-border bg-surface p-5">
+          <div className="gradient-bg rounded-2xl border border-border bg-surface p-5">
             <p className="text-xs text-text-muted uppercase tracking-wider">Expenses Tracked</p>
             <p className="mt-1 text-3xl font-bold text-text-primary">{totalExpenses}</p>
           </div>
-          <div className="rounded-2xl border border-border bg-surface p-5">
+          <div className="gradient-bg rounded-2xl border border-border bg-surface p-5">
             <p className="text-xs text-text-muted uppercase tracking-wider">Total Spent</p>
-            <p className="mt-1 text-3xl font-bold text-accent">{formatCents(totalSpent)}</p>
+            <p className="mt-1 text-3xl font-bold bg-gradient-to-r from-accent to-warning bg-clip-text text-transparent">
+              {formatCents(totalSpent)}
+            </p>
           </div>
         </div>
 
@@ -42,7 +44,7 @@ function HomeContent() {
           <button
             type="button"
             onClick={() => setShowForm(true)}
-            className="rounded-xl bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent/90 glow-cyan"
+            className="rounded-xl bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent/90 glow-accent"
           >
             + New Trip
           </button>
@@ -77,7 +79,7 @@ function HomeContent() {
             <button
               type="button"
               onClick={() => setShowForm(true)}
-              className="rounded-xl bg-accent px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent/90 glow-cyan"
+              className="rounded-xl bg-accent px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent/90 glow-accent"
             >
               Create a Trip
             </button>

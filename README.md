@@ -30,25 +30,9 @@ Built as a CS485 programming assignment demonstrating AI-assisted development wi
 - **Bun** as the JavaScript runtime and package manager
 - **TypeScript** in strict mode
 - **Tailwind CSS v4** with CSS custom properties for theming
+- **Gemini 2.5 Flash** for natural language expense parsing
 - **Vitest** + Testing Library for tests
 - **Biome** for linting and formatting
-
-## Getting Started
-
-### Prerequisites
-
-- [Bun](https://bun.sh/) >= 1.0
-
-### Install and Run
-
-```bash
-bun install
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-No API keys required. All data is stored in your browser's localStorage.
 
 ## How It Works
 

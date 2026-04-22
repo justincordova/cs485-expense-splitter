@@ -21,18 +21,18 @@
 }
 
 [data-theme="dark"] {
-  --color-background: #0a0f19;
-  --color-surface: #151b28;
-  --color-surface-hover: #1d2335;
-  --color-border: #2a3142;
-  --color-text-primary: #ebecf0;
-  --color-text-secondary: #8b95a8;
-  --color-text-muted: #505a6e;
-  --color-accent: #06d3ea;
-  --color-accent-light: #0a2c33;
-  --color-success: #00ff6f;
-  --color-danger: #ff2969;
-  --color-warning: #ffc400;
+  --color-background: #0d1117;
+  --color-surface: #161b22;
+  --color-surface-hover: #1c2128;
+  --color-border: #30363d;
+  --color-text-primary: #c9d1d9;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #6e7681;
+  --color-accent: #58a6ff;
+  --color-accent-light: #162337;
+  --color-success: #3fb950;
+  --color-danger: #f85149;
+  --color-warning: #d29922;
 }
 
 @keyframes fade-in {
@@ -61,20 +61,20 @@
 }
 
 [data-theme="dark"] .glow-cyan {
-  box-shadow: 0 0 12px rgba(6, 211, 234, 0.3);
+  box-shadow: 0 0 12px rgba(88, 166, 255, 0.25);
 }
 
 [data-theme="dark"] .glow-green {
-  box-shadow: 0 0 12px rgba(0, 255, 111, 0.3);
+  box-shadow: 0 0 12px rgba(63, 185, 80, 0.25);
 }
 
 [data-theme="dark"] .glow-pink {
-  box-shadow: 0 0 12px rgba(255, 41, 105, 0.3);
+  box-shadow: 0 0 12px rgba(248, 81, 73, 0.25);
 }
 
 [data-theme="dark"] .card-hover:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 0 20px rgba(6, 211, 234, 0.15);
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.12);
 }
 
 [data-theme="light"] .card-hover:hover {

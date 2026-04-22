@@ -95,6 +95,10 @@ export function TripDashboard({ tripId }: { tripId: string }) {
               expenses={expenses}
               members={trip.members}
               onDelete={deleteExpense}
+              onEdit={(expense) => {
+                setEditingExpense(expense);
+                setShowModal(true);
+              }}
               onOpenForm={() => {
                 setEditingExpense(null);
                 setShowModal(true);

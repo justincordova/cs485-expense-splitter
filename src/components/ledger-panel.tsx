@@ -8,10 +8,11 @@ interface LedgerPanelProps {
   expenses: Expense[];
   members: Member[];
   onDelete: (expenseId: string) => void;
+  onEdit: (expense: Expense) => void;
   onOpenForm: () => void;
 }
 
-export function LedgerPanel({ expenses, members, onDelete, onOpenForm }: LedgerPanelProps) {
+export function LedgerPanel({ expenses, members, onDelete, onEdit, onOpenForm }: LedgerPanelProps) {
   const memberMap = new Map(members.map((m) => [m.id, m]));
 
   return (
@@ -45,7 +46,7 @@ export function LedgerPanel({ expenses, members, onDelete, onOpenForm }: LedgerP
                 key={expense.id}
                 className="group relative rounded-2xl border border-border bg-surface p-3 transition-all hover:border-border/80"
               >
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 pr-14">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-medium text-text-primary truncate">
@@ -65,33 +66,56 @@ export function LedgerPanel({ expenses, members, onDelete, onOpenForm }: LedgerP
                       {payer?.name ?? "Unknown"} · {formatRelativeTime(expense.createdAt)}
                     </p>
                   </div>
-                  <span className="text-sm font-semibold text-text-primary">
+                  <span className="shrink-0 text-sm font-semibold text-text-primary">
                     {formatCents(expense.amount)}
                   </span>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (confirm("Delete this expense?")) onDelete(expense.id);
-                  }}
-                  className="absolute right-2 top-2 rounded p-1 text-text-muted opacity-0 transition-opacity group-hover:opacity-100 hover:text-danger"
-                  aria-label="Delete expense"
-                >
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
+                <div className="absolute right-2 top-2 flex gap-0.5 opacity-0 transition-opacity group-hover:opacity-100">
+                  <button
+                    type="button"
+                    onClick={() => onEdit(expense)}
+                    className="rounded p-1 text-text-muted hover:bg-surface-hover hover:text-accent"
+                    aria-label="Edit expense"
                   >
-                    <polyline points="3 6 5 6 21 6" />
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                  </svg>
-                </button>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (confirm("Delete this expense?")) onDelete(expense.id);
+                    }}
+                    className="rounded p-1 text-text-muted hover:bg-surface-hover hover:text-danger"
+                    aria-label="Delete expense"
+                  >
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="3 6 5 6 21 6" />
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             );
           })}
